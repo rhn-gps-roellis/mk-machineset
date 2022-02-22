@@ -37,6 +37,7 @@ vmnetwork="VM Network"
 * `datacenter` is the name of your datacenter
 * `datastore` is the name of the datastore you want the VMs to be installed on
 * `vspheresrv` is the hostname of your vSphere/vCenter endpoint.
+* `vmnetwork` is the name of the network that your Vsphere VMs will live on
 
 
 ## Run
