@@ -40,7 +40,7 @@ spec:
             creationTimestamp: null
           network:
             devices:
-            - networkName: ${vmnetwork} 
+            - networkName: ${VM_NETWORK} 
           numCPUs: 4
           numCoresPerSocket: 2
           snapshot: ""

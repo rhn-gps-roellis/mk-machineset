@@ -41,7 +41,7 @@ spec:
             creationTimestamp: null
           network:
             devices:
-            - networkName: VM Network
+            - networkName: ${VM_NETWORK}
           numCPUs: 4
           numCoresPerSocket: 2
           template: ${CLUSTERID}-rhcos
