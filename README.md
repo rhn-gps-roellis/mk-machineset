@@ -2,7 +2,7 @@
 
 Quick and Dirty shell script to create machinesets as seen on the Infra Node [Twitch Stream](https://youtu.be/9VNjDh1vPXI?t=3552)
 
-> :rotating_light: This script has been tested on OCP 4.5
+> :rotating_light: This script was originally developed for OCP 4.5, and is now updated to support OCP 4.8 on Vsphere.
 
 ## Setup 
 
@@ -30,6 +30,7 @@ clusterid="cluster2-79bxd"
 datacenter="Datacenter"
 datastore="datastore1"
 vspheresrv="vsphere.example.com"
+vmnetwork="VM Network"
 ```
 
 * `clusterid` is the output of `oc get -o jsonpath='{.status.infrastructureName}' infrastructure cluster`
