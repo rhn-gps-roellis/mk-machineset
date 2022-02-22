@@ -23,7 +23,7 @@ ami="ami-00e472e63fc0dbe01"
 * `zones` is an array of the AWS zones you want your infra node to be in.
 * `ami` is the name of the AWS ami of RHCOS
 
-### vSphere
+### vSphere45 and vSphere48
 
 ```shell
 clusterid="cluster2-79bxd"
@@ -47,12 +47,17 @@ Run the script for AWS
 ./mk-machineset.sh
 ```
 
-Run the script for vSphere
+Run the script for vSphere45
 
 ```shell
-./mk-machineset.sh vsphere
+./mk-machineset.sh vsphere45
 ```
 
+Run the script for vSphere48
+
+```shell
+./mk-machineset.sh vsphere48
+```
 
 ## Apply
 
