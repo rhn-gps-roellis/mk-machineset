@@ -50,7 +50,7 @@ spec:
           workspace:
             datacenter: ${DATACENTER}
             datastore: ${DATASTORE}
-            folder: /Datacenter/vm/${CLUSTERID}
+            folder: /${DATACENTER}/vm/${CLUSTERID}
             server: ${VSPHERE_SERVER}
 status:
   replicas: 0
