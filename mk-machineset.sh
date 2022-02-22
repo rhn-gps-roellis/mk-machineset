@@ -15,20 +15,34 @@ ami="ami-00e472e63fc0dbe01"
 datacenter="Datacenter"
 datastore="datastore1"
 vspheresrv="vsphere.example.com"
+vmnetwork="VM Network"
 
 # Create the outdir
 mkdir -p ./out/
 
 ###
 case "$1" in
-	vsphere)
-		echo -n "Creating MachineSet manifests (vSphere)..."
-		templatefile=./templates/99_openshift-cluster-api_infra-machineset-TEMPLATE-vmw.yaml
+	vsphere45)
+		echo -n "Creating MachineSet manifests (vSphere45)..."
+		templatefile=./templates/99_openshift-cluster-api_infra-machineset-TEMPLATE-vmw45.yaml
 		[[ ! -e ${templatefile} ]] && echo "FATAL: ${templatefile} not found" && exit
 		export CLUSTERID=${clusterid}
 		export DATACENTER=${datacenter}
 		export DATASTORE=${datastore}
 		export VSPHERE_SERVER=${vspheresrv}
+		export VM_NETWORK=${vmnetwork}
+		envsubst < ${templatefile} > ./out/99_openshift-cluster-api_infra-machineset-0.yaml
+		echo "DONE, manifests should be under ./out - Make sure to change the properties if you don't want a 4x16 server"
+	;;
+	vsphere48)
+		echo -n "Creating MachineSet manifests (vSphere48)..."
+		templatefile=./templates/99_openshift-cluster-api_infra-machineset-TEMPLATE-vmw48.yaml
+		[[ ! -e ${templatefile} ]] && echo "FATAL: ${templatefile} not found" && exit
+		export CLUSTERID=${clusterid}
+		export DATACENTER=${datacenter}
+		export DATASTORE=${datastore}
+		export VSPHERE_SERVER=${vspheresrv}
+		export VM_NETWORK=${vmnetwork}
 		envsubst < ${templatefile} > ./out/99_openshift-cluster-api_infra-machineset-0.yaml
 		echo "DONE, manifests should be under ./out - Make sure to change the properties if you don't want a 4x16 server"
 	;;
@@ -47,7 +61,7 @@ case "$1" in
 		echo "DONE, manifests should be under ./out - Make sure to change the instance type if you don't want m4.2xlarge"
 	;;
 	*)
-		echo "Usage: $(basename $0) [vsphere|aws]"
+		echo "Usage: $(basename $0) [vsphere45|vsphere48|aws]"
 		exit 1
 	;;
 esac
